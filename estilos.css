@@ -1,0 +1,168 @@
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+}
+.header{
+    background-color: #0e578A;
+    height: 60px;
+    display: flex;
+    place-content: space-between;
+    align-items: center;
+}
+.nav_header{
+    margin-right: 40px;
+    margin-top: 16px;
+}
+.a_header{
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+}
+.logo{
+    height: 35px;
+    margin-left: 40px;
+}
+.ul_header{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+.wrapper{
+    display: flex;
+}
+.left{
+    width: 60%;
+    padding: 50px; 
+}
+.left .image {
+    padding-left: 100px;
+    height: 500px;
+}
+.right{
+    width: 40%;
+    padding: 50px;
+}
+
+ /* Estilos del Formulario */
+
+ .formulario{
+    height: 100px;
+    top: 25%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+}
+.formulario h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+.formulario form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .usuario{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+.usuario input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.usuario label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+.usuario span::before{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(29, 29, 173);
+}
+.usuario input:focus ~ label,
+.usuario input:focus ~ label{
+    top: -5px;
+    color: rgb(29, 29, 173);
+}
+.usuario input:focus ~ span::before,
+.usuario input:focus ~ span::before{
+width: 100%;
+}
+.olvid{
+    margin: -5px 0 20px 5px;
+    cursor: pointer;
+}
+.olvid a{
+    text-decoration: none;
+    color: black;
+}
+.olvid:hover{
+    text-decoration: underline;
+}
+input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #0e578A;
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+input[type="submit"]:hover{
+    border-color: rgb(29, 29, 173);
+    transition: .5s;
+}
+.registro{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+}
+.registro a{
+    color: black;
+    text-decoration: none;
+}
+.registro a:hover{
+    text-decoration: underline;
+}
+.label_form{
+    display: flex;
+    justify-content: left;
+}
+
+
+
+
+
+@media only screen and (max-width: 640px) {
+    .wrapper{
+        display: block;
+    }
+    .left{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .right{
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
