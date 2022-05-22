@@ -14,6 +14,7 @@ header {
     z-index: 10;
   }
 
+
 header.abajo {
     background-color: #0e578A;
     transition: 2.5s;
@@ -50,7 +51,7 @@ a {
     font-size: 50px;
     color: rgb(0, 0, 0);
     font-family: auto;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
   }
   a:hover{
     text-decoration: overline;
@@ -64,24 +65,26 @@ a {
   }
 
 
-
 form{
     border-radius: 10px;
     border: 1px solid #ced4da;
     background-color:#0e578A;
 }
 .tituloForm{
-    font-size: 45px;
+    font-size: 32px;
+    padding: 30px;
+    display: flex;
     color: rgb(255, 255, 255);
     font-family: auto;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
+    justify-content: center;
 }
 
 label{
     width: 100%;
     color:white;
     border-radius: 4px;
-    width: 95%;
+    width: 100%;
 }
 
 .btn{
@@ -110,12 +113,14 @@ label{
   border-color: none !important;
   color: transparent;
 }
-
+.abajo .hamburger .line{
+    background-color: white;
+}
 .hamburger .line {
   display: block;
   width: 40px;
   height: 3px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   margin-block: 10px;
   border-radius: 4px;
   transition:  0.5s;
