@@ -4,6 +4,7 @@ body{
 
 header{
     background-color: #02568a;
+    padding: 0px 20px
 }
 
 .ico1{
@@ -39,12 +40,19 @@ header{
 .top-redondeado{
     border-top-left-radius: 20px;
     border-top-right-radius: 16px;
-    padding-top: 2em;
+    padding: 2em;
     background-color: #fff;
     
 }
 
-.tabla{
+.celda{
+  padding:10px 0px 0px 10px; 
+  background-color: #fff;
+  border-bottom: 1px solid #CBCBCB ;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;  
 
 }
 
@@ -52,9 +60,23 @@ header{
   
     font-size: 1.25em;
     font-weight: 600;
+    padding: 0px 20px
 
 }
 .medio{
     text-align: center;
     vertical-align: middle;
+}
+
+.transaccion{
+    font-size: larger;
+
+}
+
+.monto{
+ font-size: large;
+}
+.fecha{
+    color:#6A6A6A
+
 }
