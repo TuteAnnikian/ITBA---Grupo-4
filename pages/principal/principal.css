@@ -24,6 +24,7 @@ ul {
 
 .listlogout{
     background-color: red;
+    border-radius: 15px;
     padding: 1rem;
     position:absolute;
     bottom: 1rem;
