@@ -12,11 +12,12 @@ ul {
   }
 
 .listitem1{
-    border-style: solid;
-    
-    border-bottom: 100px;
+    padding: 1rem;
+    border-bottom: 1px solid #A9A9A9;
+
 }
 
 .listlogout{
-
+    padding: 1rem;
+    border-bottom: 1px solid #A9A9A9;
 }
