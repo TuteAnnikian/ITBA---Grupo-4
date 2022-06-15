@@ -12,7 +12,7 @@
     <header>       
         <div class="row align-items-center bg-primary">
             <a class="btn btn-primary col-2" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="hamburgerIconTitle" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#fff"> <title id="hamburgerIconTitle">Menu</title> <path d="M6 7L18 7M6 12L18 12M6 17L18 17"/> </svg>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24" aria-labelledby="hamburgerIconTitle" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#fff"> <title id="hamburgerIconTitle">Menu</title> <path d="M6 7L18 7M6 12L18 12M6 17L18 17"/> </svg>
             </a>
             <h1 class="col-10">
                 Home
@@ -29,25 +29,44 @@
                       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <div>
+                        <div class="container">
                             <ul class="list-group-flush">
                                 <li>
-                                    <a href="#" class="list-group-item listitem1">Home</a>
+                                    <div class="row">
+                                        <a href="#" class="list-group-item listitem1">
+                                            <svg class="col-2" role="img" xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24" aria-labelledby="homeAltIconTitle" stroke="#000000cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#000000cc"> <title id="homeAltIconTitle">Home</title> <path d="M3 10.182V22h18V10.182L12 2z"/> <rect width="6" height="8" x="9" y="14"/> </svg>
+                                            <h2 class="col-10">Home</h2>                               
+                                        </a>
+                                    </div>
+                                    <!-- <div>
+                                        <a href="#" class="list-group-item listitem1 col-10">Home</a>
+                                    </div> -->
                                 </li>
                                 <li>
-                                    <a href="#" class="list-group-item listitem1">Perfil</a>
+                                    <div class="row">
+                                        <svg class="" role="img" xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24" aria-labelledby="userIconTitle" stroke="#000000cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#000000cc"> <title id="userIconTitle">User</title> <path stroke-linecap="round" d="M5.5,19.5 C7.83333333,18.5 9.33333333,17.6666667 10,17 C11,16 8,16 8,11 C8,7.66666667 9.33333333,6 12,6 C14.6666667,6 16,7.66666667 16,11 C16,16 13,16 14,17 C14.6666667,17.6666667 16.1666667,18.5 18.5,19.5"/> <circle cx="12" cy="12" r="10"/> </svg>
+                                        <a href="#" class="list-group-item listitem1">Perfil</a>
+                                    </div>
                                 </li>
                                 <li>
-                                    <a href="\pages\dolar api\dolar.html" class="list-group-item listitem1">Dólar Hoy</a>
+                                    <div class="row">
+                                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24" aria-labelledby="dolarIconTitle" stroke="#000000cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#000000cc"> <title id="dolarIconTitle">Dolar</title> <path d="M12 4L12 6M12 18L12 20M15.5 8C15.1666667 6.66666667 14 6 12 6 9 6 8.5 7.95652174 8.5 9 8.5 13.140327 15.5 10.9649412 15.5 15 15.5 16.0434783 15 18 12 18 10 18 8.83333333 17.3333333 8.5 16"/> </svg>
+                                        <a href="\pages\dolar api\dolar.html" class="list-group-item listitem1">Dólar Hoy</a>
+                                    </div>
                                 </li>
                                 <li>
-                                    <a href="\pages\movimientos\movimientos.html" class="list-group-item listitem1">Movimientos</a>
+                                    <div class="row">
+                                        <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="addToListIconTitle" stroke="#000000cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" color="#000000cc"> <title id="addToListIconTitle">Add To List</title> <path d="M6 10H18"/> <path d="M6 6H18"/> <path d="M6 14H10"/> <path d="M14 16H18"/> <path d="M16 14L16 18"/> <path d="M6 18H10"/> </svg>
+                                        <a href="\pages\movimientos\movimientos.html" class="list-group-item listitem1">Movimientos</a>
+                                    </div>
                                 </li>
                               </ul>
 
                         </div>
-
-                        <a href="\index.html" class="list-group-item listlogout">Cerrar Sesión</a>
+                        <div class="row">
+                            <svg role="img" xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24" aria-labelledby="exitIconTitle" stroke="#000000cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#000000cc"> <title id="exitIconTitle">Exit</title> <path d="M18 15l3-3-3-3"/> <path d="M11.5 12H20"/> <path stroke-linecap="round" d="M21 12h-1"/> <path d="M15 4v16H4V4z"/> </svg>
+                            <a href="\index.html" class="list-group-item listlogout">Salir</a>
+                        </div>
 
                     <div>
                    
