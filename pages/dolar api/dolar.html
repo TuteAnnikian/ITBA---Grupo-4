@@ -10,13 +10,5 @@
 </head>
 <body>
     DENME DOLARES
-    <script> /* esto no funciona.no va */
-        console.log("Consultando...");
-        fetch("https://api.exchangeratesapi.io/latest?base=USD&symbols=MXN")
-        .then(respuesta => respuesta.json())
-        .then(respuestaDecodificada => {
-            console.log(respuestaDecodificada);
-        });
-    </script>
 </body>
 </html>
