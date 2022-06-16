@@ -33,12 +33,14 @@ function traer(){    /* el resto de las funciones se ejecutan dentro de esta */
 }
 
 function printData(data){
-    var signo = ((parseFloat((obj[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"")
+    var signo = ((parseFloat((obj[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"");
+    var fecha = new Date(); /* hay que arreglar el formato de fecha */
 
     tipo.innerText = data[0].casa.nombre;
     compra.innerText = data[0].casa.compra;
     venta.innerText = data[0].casa.venta;
-    variacion.textContent +=( signo + data[0].casa.variacion +"%");
+    variacion.textContent = `Variación: ${( signo + data[0].casa.variacion +"%")}`
+    foot.textContent = `Actualizado: ${fecha}`
 }
 
 function crearCards(data){   /* como creo una card lista, por cada elemento del objeto? */
