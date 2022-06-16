@@ -16,16 +16,21 @@ var compra = document.getElementById("compra1");
 var venta = document.getElementById("venta1");
 var foot = document.getElementById("foot1");
 var variacion = document.getElementById("var1");
-console.log(variacion)
 
 async function obtenerDatos(){
     const response = await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales");
     const json = await response.json();
 
+    var signo = ((parseFloat((obj[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"")
+
     tipo.innerText = json[0].casa.nombre;
     compra.innerText = json[0].casa.compra;
     venta.innerText = json[0].casa.venta;
-    variacion.appendChild(json[0].casa.variacion)
+    variacion.textContent +=( signo + json[0].casa.variacion +"%");
+
+    
+
+/*     foot.innerText = parseFloat(json[0].casa.variacion); quiero usar un if para agregarle el + al%*/
 }
 
 obtenerDatos()
