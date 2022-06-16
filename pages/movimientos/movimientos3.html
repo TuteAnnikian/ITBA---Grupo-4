@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="movimientos3.css">
+    <link rel="stylesheet" href="\pages\principal\sidebar.css">
+
+    <title>ITBANK| Home</title>
+</head>
+<body>
+    <header>       
+        <div class="row align-items-center bg-primary">
+            <a class="btn btn-primary col-2" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24" aria-labelledby="hamburgerIconTitle" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#fff"> <title id="hamburgerIconTitle">Menu</title> <path d="M6 7L18 7M6 12L18 12M6 17L18 17"/> </svg>
+            </a>
+            <h1 class="col-10">
+                Movimientos
+            </h1>
+        </div>
+    </header>
+    <section>
+        <div class="container-fluid container-busqueda"> <!--Esta es la parte de buscar-->
+            <div class="row">
+                <form>
+                        <div class="d-grid gap-2 col-9 mx-auto">
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Buscar" aria-describedby="emailHelp">
+                        </div>
+                            <div id="emailHelp" class="form-text"></div>
+                        <div class="d-grid gap-2 col-1 mx-auto">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    <main>
+        <aside>
+            <nav>
+                <div class="offcanvas offcanvas-start" id="offcanvas">
+                    <div class="offcanvas-header">
+                      <h1 class="offcanvas-title">Menú</h1>
+                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div>
+                            <ul class="list-group-flush">
+                                <li>
+                                    <a href="#" class="list-group-item listitem1">Home</a>
+                                </li>
+                                <li>
+                                    <a href="\pages\usuario\usuario.html" class="list-group-item listitem1">Perfil</a>
+                                </li>
+                                <li>
+                                    <a href="\pages\dolar api\dolar.html" class="list-group-item listitem1">Dólar Hoy</a>
+                                </li>
+                                <li>
+                                    <a href="\pages\movimientos\movimientos.html" class="list-group-item listitem1">Movimientos</a>
+                                </li>
+                              </ul>
+
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="\index.html" class="listlogout">
+                                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24" aria-labelledby="powerIconTitle" stroke="#000000cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" fill="none" color="#000000cc"> <title id="powerIconTitle">Cerrar sesión</title> <path d="M12 2L12 11M18.363961 5.63603897C21.8786797 9.15075759 21.8786797 14.8492424 18.363961 18.363961 14.8492424 21.8786797 9.15075759 21.8786797 5.63603897 18.363961 2.12132034 14.8492424 2.12132034 9.15075759 5.63603897 5.63603897"/> </svg>
+                                
+                            </a>
+                        </div>
+                    <div>
+                   
+                </div>
+                <!-- este script permite el funcionamiento de la barra y off-canvas -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
+            </nav>
+        </aside>
+
+        </div>  
+            <div class="container" > <!-- aca va la lista de mov -->
+                <ol class="list-group list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-3 me-auto">
+                        <h4><div>Restaurante</div></h4>
+                      </div>
+                      <pc class="text-center"></p>
+                        <h3><span class="badge bg-primary rounded-pill">$3450</span></h3>
+                        <p class="text-center"><small>hace 3 dias</small></p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <h4><div>Local de ropa</div></h4>
+                      </div>
+                      <pc class="text-center"></p>
+                        <h3><span class="badge bg-primary rounded-pill">$3450</span></h3>
+                        <p class="text-center"><small>hace 3 dias</small></p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <h4><div>Combustible</div></h4>
+                      </div>
+                      <pc class="text-center"></p>
+                        <h3><span class="badge bg-primary rounded-pill">$3450</span></h3>
+                        <p class="text-center"><small>hace 3 dias</small></p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <h4><div>Gas</div></h4>
+                        </div>
+                        <pc class="text-center"></p>
+                            <h3><span class="badge bg-primary rounded-pill">$3450</span></h3>
+                            <p class="text-center"><small>hace 3 dias</small></p>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <h4><div>Luz</div></h4>
+                        </div>
+                        <pc class="text-center"></p>
+                        <h3><span class="badge bg-primary rounded-pill">$3450</span></h3>
+                        <p class="text-center"><small>hace 3 dias</small></p>
+                      </li>
+                  </ol>
+            </div>
+    </main>
+</section>
+    
+    <footer></footer>
+</body>
+</html>
