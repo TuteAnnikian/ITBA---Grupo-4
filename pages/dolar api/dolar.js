@@ -33,11 +33,12 @@ function traer(){    /* el resto de las funciones se ejecutan dentro de esta */
 }
 
 function printData(data){
-    var signo = ((parseFloat((obj[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"");
-    var fecha = new Date(); /* hay que arreglar el formato de fecha */
+    var signo = ((parseFloat((data[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"");
+    var today = new Date();
+    var fecha = today.getDate()+"/"+today.getMonth()+"/"+today.getFullYear()+" "+today.getHours()+":"+today.getMinutes(); /* hay que arreglar el formato de fecha */
 
     tipo.innerText = data[0].casa.nombre;
-    compra.innerText = data[0].casa.compra;
+    compra.innerText = data[0].casa.compra;  //si valor compra /venta no cotiza , que no se muestre//
     venta.innerText = data[0].casa.venta;
     variacion.textContent = `Variación: ${( signo + data[0].casa.variacion +"%")}`
     foot.textContent = `Actualizado: ${fecha}`
