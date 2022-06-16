@@ -18,15 +18,17 @@ var venta = document.getElementById("venta1");
 var foot = document.getElementById("foot1");
 var variacion = document.getElementById("var1");
 
-function traer(){
+function traer(){    /* el resto de las funciones se ejecutan dentro de esta */
     console.log("se ejecuta funcion traer")
     fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
     .then(res => res.json())
     .then(data =>{
         console.log((data));
-        console.log("printing data...")
+       /*  console.log("iterando objeto, creando cards...");
+        crearCards(data); */
+        console.log("printing data...");
         printData(data);
-        
+           
     });
 }
 
@@ -37,6 +39,17 @@ function printData(data){
     compra.innerText = data[0].casa.compra;
     venta.innerText = data[0].casa.venta;
     variacion.textContent +=( signo + data[0].casa.variacion +"%");
+}
+
+function crearCards(data){   /* como creo una card lista, por cada elemento del objeto? */
+    for(let fila of data){
+        console.log(fila);
+        let x = document.createElement("div")
+        x.innerHTML="hola"
+        document.getElementById("insertDolares").appendChild(x)
+    }
+    /* console.log("printing data...");
+    printData(data); */
 }
 
 traer();
