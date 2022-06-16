@@ -11,31 +11,35 @@ const obj = [{"casa":{"compra":"121,96","venta":"127,96","agencia":"349","nombre
 /* la api devuelve una lista con objetos. */
 /* esto se puede poner en un bucle e ir creando los elementos por cada obj de la lista
  */
+
 var tipo = document.getElementById("tipo1");
 var compra = document.getElementById("compra1");
 var venta = document.getElementById("venta1");
 var foot = document.getElementById("foot1");
 var variacion = document.getElementById("var1");
 
-async function obtenerDatos(){
-    const response = await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales");
-    const json = await response.json();
-
-    var signo = ((parseFloat((obj[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"")
-
-    tipo.innerText = json[0].casa.nombre;
-    compra.innerText = json[0].casa.compra;
-    venta.innerText = json[0].casa.venta;
-    variacion.textContent +=( signo + json[0].casa.variacion +"%");
-
-    
-
-/*     foot.innerText = parseFloat(json[0].casa.variacion); quiero usar un if para agregarle el + al%*/
+function traer(){
+    console.log("se ejecuta funcion traer")
+    fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+    .then(res => res.json())
+    .then(data =>{
+        console.log((data));
+        console.log("printing data...")
+        printData(data);
+        
+    });
 }
 
-obtenerDatos()
+function printData(data){
+    var signo = ((parseFloat((obj[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"")
 
+    tipo.innerText = data[0].casa.nombre;
+    compra.innerText = data[0].casa.compra;
+    venta.innerText = data[0].casa.venta;
+    variacion.textContent +=( signo + data[0].casa.variacion +"%");
+}
 
+traer();
 
 
 
