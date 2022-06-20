@@ -8,12 +8,15 @@ const obj = [{"casa":{"compra":"121,96","venta":"127,96","agencia":"349","nombre
 {"casa":{"compra":"120,37","venta":"128,25","agencia":"302","nombre":"Dolar","decimales":"3"}},
 {"casa":{"nombre":"Argentina","compra":"2.121,00","venta":"-0,24","mejor_compra":"True","mejor_venta":"False","fecha":"05\/05\/15","recorrido":"16:30","afluencia":{},"agencia":"141","observaciones":{}}}]
 
-
 /* la api devuelve una lista con objetos. */
 /* esto se puede poner en un bucle e ir creando los elementos por cada obj de la lista
- 
-/* no estamos conformes con la apariencia y funcionamiento actual de la pagina, pero no queremos entregar fuera de termino*/ 
+ */
 
+var tipo = document.getElementById("tipo1");
+var compra = document.getElementById("compra1");
+var venta = document.getElementById("venta1");
+var foot = document.getElementById("foot1");
+var variacion = document.getElementById("var1");
 
 function traer(){    /* el resto de las funciones se ejecutan dentro de esta */
     console.log("se ejecuta funcion traer")
@@ -29,33 +32,16 @@ function traer(){    /* el resto de las funciones se ejecutan dentro de esta */
     });
 }
 
-
-
-
 function printData(data){
-    console.log("empieza a iterar printData");
-    for(let n = 1; n < 7; n++){
+    var signo = ((parseFloat((data[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"");
+    var today = new Date();
+    var fecha = today.getDate()+"/"+today.getMonth()+"/"+today.getFullYear()+" "+today.getHours()+":"+today.getMinutes(); /* hay que arreglar el formato de fecha */
 
-        console.log("iteracion: "+n);
-
-        var tipo = document.getElementById("tipo"+n);
-        var compra = document.getElementById("compra"+n);
-        var venta = document.getElementById("venta"+n);
-        var foot = document.getElementById("foot"+n);
-        var variacion = document.getElementById("var"+n);
-
-        console.log(tipo,compra,venta,foot,variacion);
-    
-        var signo = ((parseFloat((data[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"");
-        var today = new Date();
-        var fecha = today.getDate()+"/"+today.getMonth()+"/"+today.getFullYear()+" "+today.getHours()+":"+today.getMinutes();
-    
-        tipo.innerText = data[n-1].casa.nombre;
-        compra.innerText = data[n-1].casa.compra;  //si valor compra /venta no cotiza , que no se muestre//
-        venta.innerText = data[n-1].casa.venta;
-        variacion.textContent = `Variación: ${( signo + data[n-1].casa.variacion +"%")}`
-        foot.textContent = `Actualizado: ${fecha}`
-    }
+    tipo.innerText = data[0].casa.nombre;
+    compra.innerText = data[0].casa.compra;  //si valor compra /venta no cotiza , que no se muestre//
+    venta.innerText = data[0].casa.venta;
+    variacion.textContent = `Variación: ${( signo + data[0].casa.variacion +"%")}`
+    foot.textContent = `Actualizado: ${fecha}`
 }
 
 function crearCards(data){   /* como creo una card lista, por cada elemento del objeto? */
