@@ -45,6 +45,7 @@ function printData(data){
 }
 
 function crearCards(data){   /* como creo una card lista, por cada elemento del objeto? */
+    console.log("empieza crearCards")
     for(let fila of data){
         console.log(fila);
         let x = document.createElement("div")
