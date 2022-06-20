@@ -46,7 +46,7 @@ function printData(data){
 
         console.log(tipo,compra,venta,foot,variacion);
     
-        var signo = ((parseFloat((data[0].casa.variacion).replace(',', '.'))) > 0 ? "+":"");
+        var signo = ((parseFloat((data[n-1].casa.variacion).replace(',', '.'))) > 0 ? "+":"");
         var today = new Date();
         var fecha = today.getDate()+"/"+today.getMonth()+"/"+today.getFullYear()+" "+today.getHours()+":"+today.getMinutes();
     
