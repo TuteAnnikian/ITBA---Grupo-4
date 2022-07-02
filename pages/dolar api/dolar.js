@@ -30,8 +30,6 @@ function traer(){    /* el resto de las funciones se ejecutan dentro de esta */
 }
 
 
-
-
 function printData(data){
     console.log("empieza a iterar printData");
     for(let n = 1; n < 7; n++){
@@ -58,17 +56,17 @@ function printData(data){
     }
 }
 
-function crearCards(data){   /* como creo una card lista, por cada elemento del objeto? */
+/* function crearCards(data){    como creo una card lista, por cada elemento del objeto? 
     console.log("empieza crearCards")
     for(let fila of data){
         console.log(fila);
         let x = document.createElement("div")
         x.innerHTML="hola"
         document.getElementById("insertDolares").appendChild(x)
-    }
+    } */
     /* console.log("printing data...");
-    printData(data); */
-}
+    printData(data); 
+}*/
 
 traer();
 
