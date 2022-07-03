@@ -47,7 +47,7 @@ if not os.path.exists(path) or not os.path.isfile(path):
     print("el archivo no existe")
 
 try:
-    file =  open (path, "r") #preguntar sobre rutas de archivos !!!!
+    file =  open (path, "r")
 except:
     print("ERROR - el archivo no existe")
 
@@ -67,29 +67,32 @@ if tipo != "EMITIDO" and tipo != "DEPOSITADO":
 if estado != "PENDIENTE" and estado != "APROBADO" and estado != "RECHAZADO" and estado != None:
     print("ERROR - el parametro debe ser 'PENDIENTE','APROBADO' o 'RECHAZADO' ")
 
-# fechastr = inp[5].split(":")    #opcional
-# fecha1 = fechastr[0]
-# fecha2 = fechastr[1]
+if fecha != None:
+    fechastr = fecha.split(":") #no esta terminado
+    fecha1 = fechastr[0]
+    fecha2 = fechastr[1]
+    print(fecha1,"",fecha2)
 
-# print(fecha1,"",fecha2)
+print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)  
+
+# lo de arriba es la parte de verificacion de datos -------------------------------------------------------------
 
 print(path,dni,salida,tipo,estado,fecha)
 
-if salida == "CSV":
-    pass #fabrica csv
-elif salida == "PANTALLA":
-    pass #printea en pantalla
+
 
 
 ts = int(datetime.now().timestamp())
 print(ts)
 
+
+#esto nos devuelve todas las filas del csv
 reader = csv.reader(file)
 for fila in reader:
     print(fila)
 
 
-
+#esta es la parte de la salida, la ponemos al final pq primero hay que "fabricar" los csv que se van a imprimir o exportar
 
 
  
