@@ -71,29 +71,45 @@ if fecha != None:
     fechastr = fecha.split(":") #no esta terminado
     fecha1 = fechastr[0]
     fecha2 = fechastr[1]
-    print(fecha1,"",fecha2)
+    print(fecha1,"",fecha2)  #con estas fechas hay que filtrar los cheques esto no esta hecho
 
 print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)  
 
 # lo de arriba es la parte de verificacion de datos -------------------------------------------------------------
-
-print(path,dni,salida,tipo,estado,fecha)
-
-
-
+#hay que ver si se repite la combinacion: dni + n cheque + n cuenta, si pasa eso devolver error
+listarequerida = []
+reader = csv.reader(file)
+for fila in reader:
+    if dni in fila:
+        listarequerida.append(fila)
+    elif tipo in fila:
+        listarequerida.append(fila)
+    elif tipo in fila:
+        listarequerida.append(fila)
+        
 
 ts = int(datetime.now().timestamp())
 print(ts)
 
 
-#esto nos devuelve todas las filas del csv
-reader = csv.reader(file)
-for fila in reader:
-    print(fila)
+#esto nos devuelve todas las filas del csv, no es necesario para el tp
+# reader = csv.reader(file)
+# for fila in reader:
+#     print(fila)
 
 
 #esta es la parte de la salida, la ponemos al final pq primero hay que "fabricar" los csv que se van a imprimir o exportar
 
+if salida == "PANTALLA":
+    for fila in listarequerida:
+        print(fila)
+elif salida == "CSV":
+    fname = dni+ts+".csv"
+    with open (fname,"w") as file:
+        print("writing csv file...")
+        writer = csv.writer(file)
+        writer.writerows(listarequerida) 
+    print("csv done:",fname)  
 
  
 
