@@ -37,6 +37,7 @@ elif len(sys.argv) >= 8:
     print("Hay parámetros de mas")
 
 path = sys.argv[1]   #el csv que abrimos con la info de los cheques, es otro que el csv que tenemos que exportar al final
+# path = os.path.join("cheques", sys.argv[1])
 dni = sys.argv[2]
 salida = sys.argv[3].upper()
 tipo = sys.argv[4].upper()
@@ -88,8 +89,8 @@ for fila in reader:
         listarequerida.append(fila)
         
 
-ts = int(datetime.now().timestamp())
-print(ts)
+
+
 
 
 #esto nos devuelve todas las filas del csv, no es necesario para el tp
@@ -101,9 +102,12 @@ print(ts)
 #esta es la parte de la salida, la ponemos al final pq primero hay que "fabricar" los csv que se van a imprimir o exportar
 
 if salida == "PANTALLA":
+    
     for fila in listarequerida:
         print(fila)
 elif salida == "CSV":
+
+    ts = int(datetime.now().timestamp())
     fname = dni+ts+".csv"
     with open (fname,"w") as file:
         print("writing csv file...")
