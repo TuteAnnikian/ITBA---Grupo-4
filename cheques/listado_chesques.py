@@ -31,7 +31,7 @@ import os
 import sys
 from datetime import datetime
 
-if len(sys.argv) <4:
+if len(sys.argv) <5:
     print("Hay que ingresar por lo menos 4 parametros")
 elif len(sys.argv) >= 8:
     print("Hay parámetros de mas")
@@ -70,8 +70,10 @@ if estado != "PENDIENTE" and estado != "APROBADO" and estado != "RECHAZADO" and 
 
 if fecha != None:
     fechastr = fecha.split(":") #no esta terminado
-    fecha1 = fechastr[0]
-    fecha2 = fechastr[1]
+    dia1,mes1,ano1 = fechastr[0].split("-")
+    dia2,mes2,ano2 = fechastr[1].split("-")
+    fecha1 = datetime(int(ano1), int(mes1), int(dia1))
+    fecha2 = datetime(int(ano2),int(mes2),int(dia2))
     print(fecha1,"",fecha2)  #con estas fechas hay que filtrar los cheques esto no esta hecho
 
 print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)  
