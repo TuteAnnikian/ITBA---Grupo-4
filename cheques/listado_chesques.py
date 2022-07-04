@@ -62,6 +62,7 @@ if fecha != None:
 print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)  
 
 # lo de arriba es la parte de verificacion de datos -------------------------------------------------------------
+
 #hay que ver si se repite la combinacion: dni + n cheque + n cuenta, si pasa eso devolver error
 filtro1 = []
 filtro2 = []
@@ -79,12 +80,10 @@ for fila in filtro1:
         filtro2.append(fila)
 
 for fila in filtro2:
-    if fecha != None and fila[6] >= fecha1 and fila[6] <= fecha2:
+    if fecha != None and int(fila[6]) >= int(fecha1ts) and int(fila[6]) <= int(fecha2ts):
         filtro3.append(fila)
     elif fecha == None:
         filtro3.append(fila)
-
-print(filtro3)
 
 
 #esta es la parte de la salida, la ponemos al final pq primero hay que "fabricar" los csv que se van a imprimir o exportar
