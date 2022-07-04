@@ -31,7 +31,7 @@ import os
 import sys
 from datetime import datetime
 
-if len(sys.argv) <5:
+if len(sys.argv) <4:
     print("Hay que ingresar por lo menos 4 parametros")
 elif len(sys.argv) >= 8:
     print("Hay parámetros de mas")
@@ -53,7 +53,7 @@ except:
     print("ERROR - el archivo no existe")
 
 dni = int(dni)
-if type(dni) != int:        #test.csv, 1209310293,PANTALLA,EMITIDO,PENDIENTE, xx-xx-xxxx:yy-yy-yyyy 
+if type(dni) != int:        #test.csv, 1209310293,PANTALLA,EMITIDO,PENDIENTE, 25-02-1997:03-07-2022 
     print("ERROR - ingrese DNI solo numeros")
 
 if (len(sys.argv)) < 4 or (len(sys.argv)) > 6:
@@ -78,41 +78,35 @@ print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)
 
 # lo de arriba es la parte de verificacion de datos -------------------------------------------------------------
 #hay que ver si se repite la combinacion: dni + n cheque + n cuenta, si pasa eso devolver error
-listarequerida = []
+listarequerida1 = []
+listarequerida2 = []
 reader = csv.reader(file)
 for fila in reader:
-    if dni in fila:
-        listarequerida.append(fila)
-    elif tipo in fila:
-        listarequerida.append(fila)
-    elif tipo in fila:
-        listarequerida.append(fila)
-        
+    if dni and tipo in fila:
+        listarequerida1.append(fila)
 
+for fila in listarequerida1:
+    if estado != None and estado in fila:
+        listarequerida2.append(fila)
 
+print(listarequerida2)
 
-
-
-#esto nos devuelve todas las filas del csv, no es necesario para el tp
-# reader = csv.reader(file)
-# for fila in reader:
-#     print(fila)
 
 
 #esta es la parte de la salida, la ponemos al final pq primero hay que "fabricar" los csv que se van a imprimir o exportar
 
 if salida == "PANTALLA":
     
-    for fila in listarequerida:
+    for fila in listarequerida2:
         print(fila)
 elif salida == "CSV":
 
     ts = int(datetime.now().timestamp())
-    fname = dni+ts+".csv"
+    fname = str(dni+ts)+".csv"
     with open (fname,"w") as file:
         print("writing csv file...")
         writer = csv.writer(file)
-        writer.writerows(listarequerida) 
+        writer.writerows(listarequerida2) 
     print("csv done:",fname)  
 
  
