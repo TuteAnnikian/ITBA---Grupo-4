@@ -31,11 +31,6 @@ import os
 import sys
 from datetime import datetime
 
-if len(sys.argv) <5:
-    print("Hay que ingresar por lo menos 4 parametros")
-elif len(sys.argv) >= 8:
-    print("Hay parámetros de mas")
-
 path = sys.argv[1]   #el csv que abrimos con la info de los cheques, es otro que el csv que tenemos que exportar al final
 # path = os.path.join("cheques", sys.argv[1])
 dni = sys.argv[2]
@@ -56,7 +51,7 @@ dni = int(dni)
 if type(dni) != int:        #test.csv, 1209310293,PANTALLA,EMITIDO,PENDIENTE, 25-02-1997:03-07-2022 
     print("ERROR - ingrese DNI solo numeros")
 
-if (len(sys.argv)) < 4 or (len(sys.argv)) > 6:
+if (len(sys.argv)) < 5 or (len(sys.argv)) > 7:
     print("ERROR - revise la cantidad de parametros ingresados(ingresó",len(sys.argv),"parametros)")
 
 if salida != "PANTALLA" and salida != "CSV":
@@ -69,12 +64,16 @@ if estado != "PENDIENTE" and estado != "APROBADO" and estado != "RECHAZADO" and 
     print("ERROR - el parametro debe ser 'PENDIENTE','APROBADO' o 'RECHAZADO' ")
 
 if fecha != None:
-    fechastr = fecha.split(":") #no esta terminado
-    dia1,mes1,ano1 = fechastr[0].split("-")
-    dia2,mes2,ano2 = fechastr[1].split("-")
-    fecha1 = datetime(int(ano1), int(mes1), int(dia1))
-    fecha2 = datetime(int(ano2),int(mes2),int(dia2))
-    print(fecha1,"",fecha2)  #con estas fechas hay que filtrar los cheques esto no esta hecho
+    try:
+        fechastr = fecha.split(":")
+        dia1,mes1,ano1 = fechastr[0].split("-")
+        dia2,mes2,ano2 = fechastr[1].split("-")
+        fecha1 = datetime(int(ano1), int(mes1), int(dia1))
+        fecha2 = datetime(int(ano2),int(mes2),int(dia2))
+        print(fecha1,"",fecha2)
+    except:
+        print("ERROR - ingrese fecha valida ")
+
 
 print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)  
 
