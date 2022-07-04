@@ -32,7 +32,7 @@ try:
     dni = int(dni)
 except:
     print("ERROR - ingrese DNI solo numeros")   #test.csv, 1209310293,PANTALLA,EMITIDO,PENDIENTE, 25-02-1997:03-07-2022 
-                                                #python3 listado_chesques.py test.csv, 1209310293,PANTALLA,EMITIDO,PENDIENTE, 25-02-1997:03-07-2022
+                                                #listado_chesques.py test.csv, 11580999,PANTALLA,EMitido,aprobado, 04-04-2021:06-04-2021
 if (len(sys.argv)) < 5 or (len(sys.argv)) > 7:
     print("ERROR - revise la cantidad de parametros ingresados(ingresó",len(sys.argv),"parametros)")
 
@@ -66,7 +66,7 @@ print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)
 #hay que ver si se repite la combinacion: dni + n cheque + n cuenta, si pasa eso devolver error
 filtro1 = []
 filtro2 = []
-filtro3 = []
+filtro3 = [["NroCheque","CodigoBanco","CodigoSucursal","NumeroCuentaOrigen","NumeroCuentaDestino","Valor","FechaOrigen","FechaPago","DNI","Tipo","Estado"]]
 
 reader = csv.reader(file)
 for fila in reader:
