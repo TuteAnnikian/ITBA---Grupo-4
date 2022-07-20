@@ -13,15 +13,20 @@ import os
 import sys
 from datetime import datetime
 
-path = sys.argv[1]   #el csv que abrimos con la info de los cheques, es otro que el csv que tenemos que exportar al final
+# print(sys.argv) C:\Users\NITRO\Documents\GitHub\ITBA---Grupo-4\cheques\test.csv
+
+path = sys.argv[1].strip()   #el csv que abrimos con la info de los cheques, es otro que el csv que tenemos que exportar al final
+print("path: ", path)
 dni = sys.argv[2]
 salida = sys.argv[3].upper()
 tipo = sys.argv[4].upper()
 estado = sys.argv[5].upper() if len(sys.argv) > 5 else None
 fecha = sys.argv[6] if len(sys.argv) > 6 else None
 
+
 if not os.path.exists(path) or not os.path.isfile(path):
     print("el archivo no existe")
+    quit()
 
 try:
     file =  open (path, "r")
@@ -32,7 +37,7 @@ try:
     dni = int(dni)
 except:
     print("ERROR - ingrese DNI solo numeros")   #test.csv, 1209310293,PANTALLA,EMITIDO,PENDIENTE, 25-02-1997:03-07-2022 
-                                                #listado_chesques.py test.csv, 11580999,PANTALLA,EMitido,aprobado, 04-04-2021:06-04-2021
+                                                #python3 listado_chesques.py test.csv, 11580999, PANTALLA, emitido, aprobado, 04-04-2021:06-04-2021
 if (len(sys.argv)) < 5 or (len(sys.argv)) > 7:
     print("ERROR - revise la cantidad de parametros ingresados(ingresó",len(sys.argv),"parametros)")
 
@@ -85,20 +90,27 @@ for fila in filtro2:
     elif fecha == None:
         filtro3.append(fila)
 
+filtro4 = []
+for fila in filtro3:
+    fila = [fila[3],fila[5],fila[6],fila[7]]
+    filtro4.append(fila)
 
 #esta es la parte de la salida, la ponemos al final pq primero hay que "fabricar" los csv que se van a imprimir o exportar
 
 if salida == "PANTALLA":
+    print("--------------------------------------------------------------")
     print("Imprimiendo en pantalla:")
     for fila in filtro3:
         print(fila)
+    print("--------------------------------------------------------------")
+
 elif salida == "CSV":
     ts = int(datetime.now().timestamp())
-    fname = str(dni+ts)+".csv"
+    fname = str(dni)+str(ts)+".csv"
     with open (fname,"w") as file:
         print("writing csv file...")
         writer = csv.writer(file)
-        writer.writerows(filtro3) 
+        writer.writerows(filtro4) 
     print("csv done:",fname)  
 
  
