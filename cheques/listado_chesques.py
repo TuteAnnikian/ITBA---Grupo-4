@@ -13,15 +13,17 @@ import os
 import sys
 from datetime import datetime
 
-# print(sys.argv) C:\Users\NITRO\Documents\GitHub\ITBA---Grupo-4\cheques\test.csv
+if (len(sys.argv) < 5) or (len(sys.argv) > 7):
+    print("ERROR - revise la cantidad de parametros ingresados(ingresó",len(sys.argv),"parametros)")
+    quit()
 
 path = sys.argv[1].strip()   #el csv que abrimos con la info de los cheques, es otro que el csv que tenemos que exportar al final
-print("path: ", path)
 dni = sys.argv[2]
 salida = sys.argv[3].upper()
 tipo = sys.argv[4].upper()
 estado = sys.argv[5].upper() if len(sys.argv) > 5 else None
 fecha = sys.argv[6] if len(sys.argv) > 6 else None
+
 
 
 if not os.path.exists(path) or not os.path.isfile(path):
@@ -38,8 +40,6 @@ try:
 except:
     print("ERROR - ingrese DNI solo numeros")   #test.csv, 1209310293,PANTALLA,EMITIDO,PENDIENTE, 25-02-1997:03-07-2022 
                                                 #python3 listado_chesques.py test.csv, 11580999, PANTALLA, emitido, aprobado, 04-04-2021:06-04-2021
-if (len(sys.argv)) < 5 or (len(sys.argv)) > 7:
-    print("ERROR - revise la cantidad de parametros ingresados(ingresó",len(sys.argv),"parametros)")
 
 if salida != "PANTALLA" and salida != "CSV":
     print("ERROR - el parametro debe ser 'PANTALLA' o 'CSV' ")
@@ -55,13 +55,15 @@ if fecha != None:
         fechastr = fecha.split(":")
         dia1,mes1,ano1 = fechastr[0].split("-")
         dia2,mes2,ano2 = fechastr[1].split("-")
-        fecha1 = datetime(int(ano1), int(mes1), int(dia1))
-        fecha1ts = fecha1.timestamp()
-        fecha2 = datetime(int(ano2),int(mes2),int(dia2))
-        fecha2ts = fecha2.timestamp()
+        fechaorigen = datetime(int(ano1), int(mes1), int(dia1))
+        fechaorigents = fechaorigen.timestamp()
+        fechapago = datetime(int(ano2),int(mes2),int(dia2))
+        fechapagots = fechapago.timestamp()
     except:
         print("ERROR - ingrese fecha valida ")
         pass
+
+
 
 
 print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)  
@@ -72,11 +74,19 @@ print("Ud. ingresó: ",path,dni,salida,tipo,estado,fecha)
 filtro1 = []
 filtro2 = []
 filtro3 = [["NroCheque","CodigoBanco","CodigoSucursal","NumeroCuentaOrigen","NumeroCuentaDestino","Valor","FechaOrigen","FechaPago","DNI","Tipo","Estado"]]
+checkdup=[]
 
 reader = csv.reader(file)
 for fila in reader:
+    checkdup.append(str([fila[8]+fila[0]+fila[3]]))
+
     if fila[8] == str(dni) and fila[9] == tipo:
-        filtro1.append(fila)
+        filtro1.append(fila) 
+
+if len(checkdup) != len(set(checkdup)):
+    print("ERROR - Numero de cheque repetido para esta cuenta y este dni!")
+else: 
+    pass
 
 for fila in filtro1:
     if estado != None and fila[10] == estado:
@@ -85,8 +95,12 @@ for fila in filtro1:
         filtro2.append(fila)
 
 for fila in filtro2:
-    if fecha != None and int(fila[6]) >= int(fecha1ts) and int(fila[6]) <= int(fecha2ts):
+    if fecha != None and tipo == "EMITIDO" and int(fila[6]) >= int(fechaorigents):
         filtro3.append(fila)
+        
+    elif fecha != None and tipo == "Depositado" and int(fila[7]) <= int(fechapagots):
+        filtro3.append(fila)
+        
     elif fecha == None:
         filtro3.append(fila)
 
