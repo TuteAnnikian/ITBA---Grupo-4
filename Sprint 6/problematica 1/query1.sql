@@ -51,11 +51,11 @@ CREATE TABLE "tarjeta" (
     PRIMARY KEY ("numero")
 )
 
-ALTER TABLE cliente 
-ADD COLUMN direccion_id INTEGER REFERENCES direccion(direccion_id)
+--ALTER TABLE cliente --
+--ADD COLUMN direccion_id INTEGER REFERENCES direccion(direccion_id)--
 
-ALTER TABLE empleado 
-ADD COLUMN direccion_id INTEGER REFERENCES direccion(direccion_id)
+--ALTER TABLE empleado 
+--ADD COLUMN direccion_id INTEGER REFERENCES direccion(direccion_id)
 
 ALTER TABLE cuenta
 ADD COLUMN tipo_cuenta_id INTEGER REFERENCES tipo_cuenta(tipo_cuenta_id)
