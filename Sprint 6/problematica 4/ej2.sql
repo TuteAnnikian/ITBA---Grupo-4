@@ -1,0 +1,4 @@
+CREATE VIEW TotalEmp AS SELECT sucursal.branch_name, COUNT (employee_id) AS "total_emp" FROM empleado JOIN sucursal ON sucursal.branch_id = empleado.branch_id GROUP BY sucursal.branch_name
+CREATE VIEW TotalCli AS SELECT sucursal.branch_name, COUNT (customer_id) AS "total_cli" FROM cliente JOIN sucursal ON sucursal.branch_id = cliente.branch_id GROUP BY sucursal.branch_name
+
+SELECT TotalEmp.branch_name AS "Nombre_de_la_sucursal",  TotalCli.total_cli AS "Total_de_clientes", TotalEmp.total_emp AS "Total_de_empleados", (CAST(TotalCli.total_cli AS REAL)/TotalEmp.total_emp) AS "Cantidad_de_empleados_por_clientes" FROM TotalEmp JOIN TotalCli ON TotalEmp.branch_name = TotalCli.branch_name ORDER BY Cantidad_de_empleados_por_clientes DESC
